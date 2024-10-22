@@ -7,12 +7,14 @@ const Navbar = ({ onClick }) => {
       <h2>New Releases</h2>
       <ul>
         <li>
-          <Button onClick={onClick} page="games">
-            <Link to="/LastThirty">Last 30 Days </Link>
+          <Button onClick={onClick} category="games">
+            <Link to="/games">Last 30 Days </Link>
           </Button>
         </li>
         <li>
-          <Button>This Week</Button>
+          <Link to="/games" data-category="games" onClick={onClick}>
+            This Week
+          </Link>
         </li>
         <li>
           <Button>Upcoming</Button>

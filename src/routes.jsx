@@ -8,7 +8,7 @@ const routes = [
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/LastThirty",
+        path: "/games",
         element: <ContentPage />,
       },
     ],

@@ -1,6 +1,6 @@
-const Button = ({ children, onClick, page }) => {
+const Button = ({ children, onClick, category }) => {
   return (
-    <button data-page={page} onClick={onClick}>
+    <button data-category={category} onClick={onClick}>
       {children}
     </button>
   );

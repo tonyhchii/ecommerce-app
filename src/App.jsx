@@ -2,21 +2,22 @@ import { useState } from "react";
 import Navbar from "./Components/Navbar";
 import { Outlet } from "react-router-dom";
 function App() {
-  const [page, setPage] = useState("games");
+  const [category, setCategory] = useState("games");
+  const [page, setPage] = useState("1");
   const [time, setTime] = useState("last-thirty");
 
-  const changePage = (e) => {
+  const handleChange = (e) => {
     const dataset = e.currentTarget.dataset;
-    setPage(dataset.page);
+    setCategory(dataset.category);
   };
   return (
     <>
       <div className="app-container">
         <div className="app-header"></div>
         <div className="app-body">
-          <Navbar onClick={changePage}></Navbar>
+          <Navbar onClick={handleChange}></Navbar>
           <div>
-            <Outlet context={[[page], [time]]} />
+            <Outlet context={[[page, setPage], [time], [category]]} />
           </div>
         </div>
       </div>
