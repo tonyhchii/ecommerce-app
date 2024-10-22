@@ -1,12 +1,15 @@
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ onClick }) => {
   return (
     <div>
       <h2>New Releases</h2>
       <ul>
         <li>
-          <Button>Last 30 Days</Button>
+          <Button onClick={onClick} page="games">
+            <Link to="/LastThirty">Last 30 Days </Link>
+          </Button>
         </li>
         <li>
           <Button>This Week</Button>
