@@ -1,11 +1,10 @@
 import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Button from "./Button";
 import GameCard from "./GameCard";
 import "./ContentPage.css";
 
 const ContentPage = () => {
-  const [[page, setPage], time, category] = useOutletContext();
+  const [[page, setPage], time, category, title] = useOutletContext();
   const [data, setData] = useState(null);
   const key = "key=b0049c0ad6f74aa18628ce91dcd569fd";
   const nextPage = () => {
@@ -37,7 +36,7 @@ const ContentPage = () => {
 
   return (
     <div className="content-container">
-      <h1>{category}</h1>
+      <h1>{title}</h1>
       {data && (
         <div>
           <div className="games-container">
@@ -46,8 +45,8 @@ const ContentPage = () => {
             })}
           </div>
           <div className="btn-container">
-            {page > 1 && <Button onClick={lastPage}>Prev Page</Button>}
-            <Button onClick={nextPage}>Next Page</Button>
+            {page > 1 && <button onClick={lastPage}>Prev Page</button>}
+            <button onClick={nextPage}>Next Page</button>
           </div>
         </div>
       )}

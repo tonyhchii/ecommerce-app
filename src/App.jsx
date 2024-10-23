@@ -6,11 +6,13 @@ function App() {
   const [category, setCategory] = useState("games");
   const [page, setPage] = useState("1");
   const [time, setTime] = useState("last-thirty");
+  const [title, setTitle] = useState("Last 30 Days");
 
   const handleChange = (e) => {
     const dataset = e.currentTarget.dataset;
     setCategory(dataset.category);
     setTime("last-thirty");
+    setTitle(dataset.title);
   };
   return (
     <>
@@ -19,7 +21,7 @@ function App() {
         <div className="app-body">
           <Navbar onClick={handleChange}></Navbar>
           <div>
-            <Outlet context={[[page, setPage], [time], [category]]} />
+            <Outlet context={[[page, setPage], [time], [category], [title]]} />
           </div>
         </div>
       </div>
