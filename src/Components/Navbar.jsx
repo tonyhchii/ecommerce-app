@@ -1,9 +1,10 @@
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = ({ onClick }) => {
   return (
-    <div>
+    <div className="navbar">
       <h2>New Releases</h2>
       <ul>
         <li>

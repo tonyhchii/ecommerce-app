@@ -1,0 +1,41 @@
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+.header-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+}
+
+.search-bar input,
+.search-bar button {
+  border: solid 1px black;
+  padding: 0.4rem 0.75rem;
+}
+
+.search-bar input {
+  border-right: transparent;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar button {
+  background-color: transparent;
+  border-left: transparent;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.shop-header img {
+  width: 1rem;
+}

@@ -9,6 +9,7 @@
 }
 
 .app-body {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
   gap: 1rem;
 }
