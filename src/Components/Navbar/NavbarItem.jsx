@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 const NavbarItem = ({ children, onClick, title, category }) => {
+  const link = "/" + category;
   return (
     <Link
-      to="/games"
+      to={link}
       data-category={category}
       data-title={title}
       onClick={onClick}

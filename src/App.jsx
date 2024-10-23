@@ -1,12 +1,19 @@
-import { useState } from "react";
-import Navbar from "./Components/Navbar";
-import { Outlet } from "react-router-dom";
-import ShopHeader from "./Components/ShopHeader";
+import { useState, useEffect } from "react";
+import Navbar from "./Components/Navbar/Navbar";
+import { Outlet, useLocation } from "react-router-dom";
+import ShopHeader from "./Components/Header/ShopHeader";
 function App() {
+  let data = useLocation().state;
   const [category, setCategory] = useState("games");
   const [page, setPage] = useState("1");
   const [time, setTime] = useState("last-thirty");
-  const [title, setTitle] = useState("Last 30 Days");
+  const [title, setTitle] = useState("Top Games of All Time");
+
+  useEffect(() => {
+    if (data) {
+      setTitle(data.title);
+    }
+  }, [data]);
 
   const handleChange = (e) => {
     const dataset = e.currentTarget.dataset;

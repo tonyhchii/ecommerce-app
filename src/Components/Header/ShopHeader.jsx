@@ -1,6 +1,6 @@
 import "./ShopHeader.css";
-import shoppingCart from "../Assets/shopping-cart.svg";
-import searchIcon from "../Assets/search-icon.svg";
+import shoppingCart from "../../Assets/shopping-cart.svg";
+import searchIcon from "../../Assets/search-icon.svg";
 const ShopHeader = () => {
   return (
     <div className="shop-header">

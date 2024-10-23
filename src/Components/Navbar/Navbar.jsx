@@ -1,5 +1,3 @@
-import home from "../Assets/home.svg";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
 import NavbarItem from "./NavbarItem";
 

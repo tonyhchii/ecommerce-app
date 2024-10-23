@@ -3,11 +3,6 @@
   gap: 2rem;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .navbar li:not(:last-child) {
   margin-bottom: 5px;
 }
@@ -22,6 +17,8 @@
 }
 
 .navbar a {
+  text-decoration: none;
+  color: inherit;
   display: flex;
   gap: 1rem;
   align-items: center;

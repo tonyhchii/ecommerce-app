@@ -1,0 +1,87 @@
+.home-body {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.middle-section {
+  display: flex;
+  flex-flow: column-reverse;
+  gap: 1rem;
+}
+
+.btn {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0.4rem 1rem;
+  transition: all 0.5s;
+}
+.btn:hover {
+  background-color: black;
+  fill: white;
+  color: white;
+  transform: scale(1.05);
+}
+.nav-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: hsla(0 0% 86% / 0.51);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.nav-container a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.credit-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 1.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  gap: 1rem;
+}
+.credits {
+  display: flex;
+  gap: 1rem;
+}
+
+.credit a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.credit {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.5rem;
+  border-radius: 1rem;
+  background-color: white;
+  color: black;
+}
+
+@media screen and (min-width: 1000px) {
+  .middle-section {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  .nav-container {
+    display: flex;
+    flex-flow: column;
+  }
+}

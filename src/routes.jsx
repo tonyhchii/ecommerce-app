@@ -1,6 +1,7 @@
 import ErrorPage from "./Components/ErrorPage";
 import App from "./App";
-import ContentPage from "./Components/ContentPage";
+import ContentPage from "./Components/ContentPage/ContentPage";
+import HomePage from "./Components/HomePage/HomePage";
 const routes = [
   {
     path: "/",
@@ -12,6 +13,10 @@ const routes = [
         element: <ContentPage />,
       },
     ],
+  },
+  {
+    path: "/home",
+    element: <HomePage />,
   },
 ];
 
