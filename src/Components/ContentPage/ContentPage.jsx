@@ -4,7 +4,7 @@ import GameCard from "./GameCard";
 import "./ContentPage.css";
 
 const ContentPage = () => {
-  const [[page, setPage], time, category, title] = useOutletContext();
+  const [[page, setPage], [time], category, title] = useOutletContext();
   const [data, setData] = useState(null);
   const key = "key=b0049c0ad6f74aa18628ce91dcd569fd";
   const nextPage = () => {
@@ -16,6 +16,9 @@ const ContentPage = () => {
   useEffect(() => {
     let ignore = false;
     const dateString = getDateString(time);
+    console.log(
+      `https://api.rawg.io/api/${category}?${dateString}&${key}&page=${page}`
+    );
     fetch(
       `https://api.rawg.io/api/${category}?${dateString}&${key}&page=${page}`
     )
@@ -24,7 +27,6 @@ const ContentPage = () => {
       })
       .then((obj) => {
         if (!ignore) {
-          console.log(obj);
           setData(obj);
         }
       });
@@ -32,7 +34,7 @@ const ContentPage = () => {
     return () => {
       ignore = true;
     };
-  }, [page, time]);
+  }, [page, time, category]);
 
   return (
     <div className="content-container">
@@ -45,8 +47,14 @@ const ContentPage = () => {
             })}
           </div>
           <div className="btn-container">
-            {page > 1 && <button onClick={lastPage}>Prev Page</button>}
-            <button onClick={nextPage}>Next Page</button>
+            {page > 1 && (
+              <button className="btn" onClick={lastPage}>
+                Prev Page
+              </button>
+            )}
+            <button className="btn" onClick={nextPage}>
+              Next Page
+            </button>
           </div>
         </div>
       )}
@@ -56,18 +64,47 @@ const ContentPage = () => {
 
 function getDateString(time) {
   const todayDate = new Date();
+  const thisMonth = todayDate.getMonth();
+  const thisDay = todayDate.getDate();
+  console.log(thisDay);
+  const thisYear = todayDate.getFullYear();
   let startDate = "";
   let endDate = "";
   switch (time) {
-    case "last-thirty": {
-      startDate = `${todayDate.getYear()}-${
-        todayDate.getMonth() - 1
-      }-${todayDate.getDay()}`;
-      endDate = `${todayDate.getYear()}-${todayDate.getMonth()}-${todayDate.getDay()}`;
+    case "next": {
+      startDate = `${thisYear}-${convertDigit(thisMonth)}-${convertDigit(
+        thisDay
+      )}`;
+      endDate = `${thisYear}-${convertDigit(thisMonth + 1)}-${convertDigit(
+        thisDay
+      )}`;
+      break;
+    }
+    case "week": {
+      startDate = `${thisYear}-${convertDigit(thisMonth)}-${
+        thisDay - 7 > 0 ? convertDigit(thisDay - 7) : "01"
+      }`;
+      endDate = `${todayDate.getFullYear()}-${convertDigit(
+        thisMonth
+      )}-${convertDigit(thisDay)}`;
+      break;
+    }
+    case "month": {
+      startDate = `${thisYear}-${convertDigit(thisMonth - 1)}-${convertDigit(
+        thisDay
+      )}`;
+      endDate = `${todayDate.getFullYear()}-${convertDigit(
+        thisMonth
+      )}-${convertDigit(thisDay)}`;
+      break;
+    }
+    case "year": {
+      startDate = `${thisYear}-01-01`;
+      endDate = `${thisYear}-12-31`;
       break;
     }
     default: {
-      startDate = `${todayDate.getFullYear()}-01-01`;
+      startDate = `1975-01-01`;
       endDate = `${todayDate.getFullYear()}-12-31`;
       break;
     }
@@ -75,6 +112,11 @@ function getDateString(time) {
   const dateString = `dates=${startDate},${endDate}`;
 
   return dateString;
+}
+
+function convertDigit(digit) {
+  const newDigit = digit + 1;
+  return newDigit < 10 ? "0" + newDigit : "" + newDigit;
 }
 
 export default ContentPage;

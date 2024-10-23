@@ -16,10 +16,10 @@ function App() {
   }, [data]);
 
   const handleChange = (e) => {
-    const dataset = e.currentTarget.dataset;
-    setCategory(dataset.category);
-    setTime("last-thirty");
-    setTitle(dataset.title);
+    const data = e.currentTarget.dataset;
+    setCategory(data.category);
+    setTime(data.time);
+    setTitle(data.title);
   };
   return (
     <>

@@ -3,7 +3,7 @@ const Credits = () => {
     <div className="credit-container">
       <p>Made By</p>
       <div className="credits">
-        <div className="credit">
+        <div className="credit btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 30 30"
@@ -14,7 +14,7 @@ const Credits = () => {
           </svg>
           <a href="https://github.com/tonyhchii">tonyhchii</a>
         </div>
-        <div className="credit">
+        <div className="credit btn">
           <a href="https://rawg.io/">RAWG API</a>
         </div>
       </div>

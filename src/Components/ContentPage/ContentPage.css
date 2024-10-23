@@ -5,6 +5,12 @@
   gap: 1rem;
   padding: 1rem;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
 @media screen and (min-width: 700px) and (max-width: 900px) {
   .games-container {
     display: grid;

@@ -4,18 +4,18 @@ import ContentPage from "./Components/ContentPage/ContentPage";
 import HomePage from "./Components/HomePage/HomePage";
 const routes = [
   {
-    path: "/",
+    path: "/games",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/games",
+        path: "/games/",
         element: <ContentPage />,
       },
     ],
   },
   {
-    path: "/home",
+    path: "/",
     element: <HomePage />,
   },
 ];
