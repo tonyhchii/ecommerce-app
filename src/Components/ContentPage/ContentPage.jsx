@@ -16,9 +16,6 @@ const ContentPage = () => {
   useEffect(() => {
     let ignore = false;
     const dateString = getDateString(time);
-    console.log(
-      `https://api.rawg.io/api/${category}?${dateString}&${key}&page=${page}`
-    );
     fetch(
       `https://api.rawg.io/api/${category}?${dateString}&${key}&page=${page}`
     )
@@ -27,6 +24,7 @@ const ContentPage = () => {
       })
       .then((obj) => {
         if (!ignore) {
+          console.log(obj);
           setData(obj);
         }
       });
@@ -47,14 +45,16 @@ const ContentPage = () => {
             })}
           </div>
           <div className="btn-container">
-            {page > 1 && (
+            {data.previous && (
               <button className="btn" onClick={lastPage}>
                 Prev Page
               </button>
             )}
-            <button className="btn" onClick={nextPage}>
-              Next Page
-            </button>
+            {data.next && (
+              <button className="btn" onClick={nextPage}>
+                Next Page
+              </button>
+            )}
           </div>
         </div>
       )}
@@ -66,7 +66,6 @@ function getDateString(time) {
   const todayDate = new Date();
   const thisMonth = todayDate.getMonth();
   const thisDay = todayDate.getDate();
-  console.log(thisDay);
   const thisYear = todayDate.getFullYear();
   let startDate = "";
   let endDate = "";

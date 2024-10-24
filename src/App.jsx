@@ -20,6 +20,7 @@ function App() {
     setCategory(data.category);
     setTime(data.time);
     setTitle(data.title);
+    setPage("1");
   };
   return (
     <>
