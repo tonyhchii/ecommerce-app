@@ -5,9 +5,11 @@ import searchIcon from "../../Assets/search-icon.svg";
 const ShopHeader = () => {
   return (
     <div className="shop-header">
-      <div className="logo">
-        <h1>Game Shop</h1>
-      </div>
+      <Link to="/">
+        <div className="logo">
+          <h1>Game Shop</h1>
+        </div>
+      </Link>
 
       <div className="header-right">
         <div className="search-bar">

@@ -39,3 +39,10 @@
 .shop-header img {
   width: 1rem;
 }
+
+.shop-header a {
+  transition: transform 0.2s ease-out;
+}
+.shop-header a:hover {
+  transform: scale(1.1);
+}

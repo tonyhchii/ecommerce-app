@@ -7,6 +7,7 @@ const ContentPage = () => {
   const [[page, setPage], [time], category, title] = useOutletContext();
   const [data, setData] = useState(null);
   const key = "key=b0049c0ad6f74aa18628ce91dcd569fd";
+
   const nextPage = () => {
     setPage(parseInt(page) + 1);
   };
@@ -20,11 +21,11 @@ const ContentPage = () => {
       `https://api.rawg.io/api/${category}?${dateString}&${key}&page=${page}`
     )
       .then((response) => {
+        console.log(response);
         return response.json();
       })
       .then((obj) => {
         if (!ignore) {
-          console.log(obj);
           setData(obj);
         }
       });

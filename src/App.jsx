@@ -6,7 +6,7 @@ function App() {
   let data = useLocation().state;
   const [category, setCategory] = useState("games");
   const [page, setPage] = useState("1");
-  const [time, setTime] = useState("last-thirty");
+  const [time, setTime] = useState("");
   const [title, setTitle] = useState("Top Games of All Time");
 
   useEffect(() => {

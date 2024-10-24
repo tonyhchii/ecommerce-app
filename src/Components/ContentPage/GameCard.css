@@ -1,7 +1,32 @@
-.cardImg img {
+.card-img img {
   max-width: 100%;
   object-fit: cover;
   aspect-ratio: 1.7 / 1;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+}
+
+.card {
+  transition: transform 0.3s ease-out;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-content {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.price-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-content button {
+  background-color: transparent;
 }
