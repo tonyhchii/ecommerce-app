@@ -1,18 +1,39 @@
 import ShopHeader from "../Header/ShopHeader";
 import { useContext } from "react";
 import { ShopContext } from "../ShopContext";
+import "./ShoppingCart.css";
+import CheckOutCard from "./CheckOutCard";
 
 const ShoppingCart = () => {
-  const { cart } = useContext(ShopContext);
+  const { cart, clearCart } = useContext(ShopContext);
   console.log(cart);
   return (
     <div>
       <ShopHeader />
-      <div>
-        <div>
-          {cart.map((games) => {
-            return <h3 key={games.id}>{games.game}</h3>;
-          })}
+      <div className="shopping-cart">
+        <div className="cart-games">
+          {cart.length > 0 ? (
+            <>
+              <h2>
+                {cart.length == 1
+                  ? cart.length + " Game"
+                  : cart.length + " Games"}
+              </h2>
+              {cart.map((games) => {
+                return <CheckOutCard key={games.id} game={games} />;
+              })}
+            </>
+          ) : (
+            <h2>Cart is Empty</h2>
+          )}
+          {cart.length > 0 && (
+            <div className="btn-container">
+              <button className="btn" onClick={clearCart}>
+                Remove All
+              </button>
+              <button className="btn">Checkout</button>
+            </div>
+          )}
         </div>
       </div>
     </div>

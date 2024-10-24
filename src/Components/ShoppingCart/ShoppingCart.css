@@ -1,0 +1,42 @@
+.checkout-card img {
+  max-width: 100%;
+}
+.card-top {
+  display: flex;
+  justify-content: flex-end;
+}
+.card-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.checkout-card {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 1rem;
+}
+
+.checkout-img {
+  padding: 2rem;
+  padding-left: 1rem;
+}
+
+.cart-games {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+}
+.shopping-cart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.x-btn {
+  border-radius: 100%;
+  padding: 0.25rem 0.4rem;
+  margin: 0.5rem;
+}
+
+.checkout-card .card-content {
+  align-items: center;
+  padding: 0;
+}

@@ -6,7 +6,12 @@ const GameCard = ({ game }) => {
   const [addedToCart, setAddedToCart] = useState(false);
   const onClick = () => {
     setAddedToCart(!addedToCart);
-    addToCart({ id: game.id, game: game.name, price: 59.99 });
+    addToCart({
+      id: game.id,
+      game: game.name,
+      price: 59.99,
+      image: game.background_image,
+    });
   };
   return (
     <div className="card">

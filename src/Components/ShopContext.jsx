@@ -8,7 +8,10 @@ const ShopContextProvider = ({ children }) => {
     setCart([...cart, item]);
   };
 
-  const contextValue = { cart, addToCart };
+  const clearCart = () => {
+    setCart([]);
+  };
+  const contextValue = { cart, addToCart, clearCart };
 
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>

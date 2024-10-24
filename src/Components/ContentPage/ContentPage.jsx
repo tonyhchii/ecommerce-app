@@ -4,9 +4,11 @@ import GameCard from "./GameCard";
 import "./ContentPage.css";
 
 const ContentPage = () => {
-  const [[page, setPage], [time], category, title] = useOutletContext();
+  const [[page, setPage], time, category, title] = useOutletContext();
   const [data, setData] = useState(null);
   const key = "key=b0049c0ad6f74aa18628ce91dcd569fd";
+  const dateString = getDateString(time);
+  const url = `https://api.rawg.io/api/${category}?${dateString}&${key}&page=${page}`;
 
   const nextPage = () => {
     setPage(parseInt(page) + 1);
@@ -16,10 +18,8 @@ const ContentPage = () => {
   };
   useEffect(() => {
     let ignore = false;
-    const dateString = getDateString(time);
-    fetch(
-      `https://api.rawg.io/api/${category}?${dateString}&${key}&page=${page}`
-    )
+
+    fetch(url)
       .then((response) => {
         console.log(response);
         return response.json();
@@ -33,7 +33,7 @@ const ContentPage = () => {
     return () => {
       ignore = true;
     };
-  }, [page, time, category]);
+  }, [url]);
 
   return (
     <div className="content-container">

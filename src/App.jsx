@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     if (data) {
       setTitle(data.title);
+      setTime(data.time);
     }
   }, [data]);
 
@@ -29,7 +30,7 @@ function App() {
         <div className="app-body">
           <Navbar onClick={handleChange}></Navbar>
           <div>
-            <Outlet context={[[page, setPage], [time], [category], [title]]} />
+            <Outlet context={[[page, setPage], time, category, title]} />
           </div>
         </div>
       </div>
