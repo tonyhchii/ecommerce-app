@@ -1,8 +1,19 @@
+import { useContext } from "react";
+import { ShopContext } from "../ShopContext";
+
 const CheckOutCard = ({ game }) => {
+  const { deleteItem } = useContext(ShopContext);
   return (
     <div className="checkout-card">
       <div className="card-top">
-        <button className="x-btn">X</button>
+        <button
+          className="x-btn"
+          onClick={() => {
+            deleteItem(game.id);
+          }}
+        >
+          X
+        </button>
       </div>
       <div className="card-bottom">
         <div className="checkout-img">

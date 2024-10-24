@@ -6,6 +6,10 @@ import CheckOutCard from "./CheckOutCard";
 
 const ShoppingCart = () => {
   const { cart, clearCart } = useContext(ShopContext);
+  let total = 0;
+  cart.forEach((game) => {
+    total += game.price;
+  });
   console.log(cart);
   return (
     <div>
@@ -22,6 +26,7 @@ const ShoppingCart = () => {
               {cart.map((games) => {
                 return <CheckOutCard key={games.id} game={games} />;
               })}
+              <div> Total: ${total} </div>
             </>
           ) : (
             <h2>Cart is Empty</h2>

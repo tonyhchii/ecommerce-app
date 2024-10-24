@@ -11,7 +11,11 @@ const ShopContextProvider = ({ children }) => {
   const clearCart = () => {
     setCart([]);
   };
-  const contextValue = { cart, addToCart, clearCart };
+
+  const deleteItem = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
+  };
+  const contextValue = { cart, addToCart, clearCart, deleteItem };
 
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
