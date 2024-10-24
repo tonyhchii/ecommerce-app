@@ -10,7 +10,6 @@ const ShoppingCart = () => {
   cart.forEach((game) => {
     total += game.price;
   });
-  console.log(cart);
   return (
     <div>
       <ShopHeader />
